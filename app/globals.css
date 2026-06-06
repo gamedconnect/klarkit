@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --navy: #102A43;
+    --teal: #2EC4B6;
+    --lightgray: #F5F7FA;
+    --darkgray: #1F2933;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-brand-darkgray font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#2EC4B6] text-white font-semibold rounded-xl hover:bg-[#22A99C] transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#102A43] text-white font-semibold rounded-xl hover:bg-[#214363] transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#102A43] text-[#102A43] font-semibold rounded-xl hover:bg-[#102A43] hover:text-white transition-all duration-200 active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-[#1F2933] font-medium rounded-lg hover:bg-[#F5F7FA] transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-[#1F2933] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2EC4B6] focus:border-transparent transition-all duration-200;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-[#1F2933] mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-[#102A43];
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-500 mt-3 max-w-2xl;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .prose-klarkit {
+    @apply text-[#1F2933] leading-relaxed;
+  }
+
+  .prose-klarkit h2 {
+    @apply text-2xl font-bold text-[#102A43] mt-8 mb-4;
+  }
+
+  .prose-klarkit h3 {
+    @apply text-xl font-semibold text-[#102A43] mt-6 mb-3;
+  }
+
+  .prose-klarkit p {
+    @apply mb-4;
+  }
+
+  .prose-klarkit ul {
+    @apply list-disc list-inside space-y-1 mb-4 pl-2;
+  }
+
+  .prose-klarkit strong {
+    @apply font-semibold text-[#102A43];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
