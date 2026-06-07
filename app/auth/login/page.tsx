@@ -2,14 +2,13 @@
 
 import { useState, Suspense } from 'react';
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 import toast from 'react-hot-toast';
 import { Mail, Lock, ArrowRight, Eye, EyeOff } from 'lucide-react';
 
 function LoginForm() {
   const supabase = createClient();
-  const router = useRouter();
   const searchParams = useSearchParams();
   const redirect = searchParams.get('redirect') || '/account';
 
@@ -26,8 +25,7 @@ function LoginForm() {
       toast.error('E-Mail oder Passwort falsch');
     } else {
       toast.success('Willkommen zurück!');
-      router.push(redirect);
-      router.refresh();
+      window.location.href = redirect;
     }
   };
 
