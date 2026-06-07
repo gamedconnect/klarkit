@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { ShoppingCart, Menu, X, Search, User, ChevronDown } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
@@ -23,7 +24,7 @@ const navigation = [
   { label: 'Über KlarKit', href: '/about' },
 ];
 
-export function Header() {
+export function Header({ logoUrl }: { logoUrl?: string | null }) {
   const { getTotalItems, openCart } = useCartStore();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -49,12 +50,25 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 bg-navy-DEFAULT rounded-lg flex items-center justify-center group-hover:bg-teal-DEFAULT transition-colors duration-200">
-              <span className="text-white font-bold text-sm">K</span>
-            </div>
-            <span className="text-xl font-bold text-navy-DEFAULT">
-              Klar<span className="text-teal-DEFAULT">Kit</span>
-            </span>
+            {logoUrl ? (
+              <Image
+                src={logoUrl}
+                alt="Logo"
+                width={140}
+                height={40}
+                className="h-9 w-auto object-contain"
+                unoptimized
+              />
+            ) : (
+              <>
+                <div className="w-8 h-8 bg-navy-DEFAULT rounded-lg flex items-center justify-center group-hover:bg-teal-DEFAULT transition-colors duration-200">
+                  <span className="text-white font-bold text-sm">K</span>
+                </div>
+                <span className="text-xl font-bold text-navy-DEFAULT">
+                  Klar<span className="text-teal-DEFAULT">Kit</span>
+                </span>
+              </>
+            )}
           </Link>
 
           {/* Desktop Navigation */}
